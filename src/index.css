@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.timmana-regular {
+    font-family: "Timmana", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.cipper{
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)
+}
+.clipper{
+    clip-path: polygon(0% 0%, 100% 0%, 85% 100%, 0% 100%)
+}
+.whole-transition {
+    transition: property duration timing-function delay;
+}
