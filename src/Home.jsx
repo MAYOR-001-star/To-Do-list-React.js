@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
-import { FaBars, FaPlus, FaTimes } from 'react-icons/fa';
+import { FaBars, FaTimes } from 'react-icons/fa';
+import Add_task from './Add_task';
+import CompletedTask from './CompletedTask';
+import { useGlobalContext } from './Context';
+import Todo from './Todo';
 
 const Home = () => {
     const [show, setShow] = useState(false);
-
+    const { currentView, showTodo, showCompleted, showAddTask } = useGlobalContext();
     return (
         <>
             <div className='timmana-regular p-4 bg-[hsl(223,65%,52%)] max-w-[80rem] mx-auto border-b-2 border-[#3461d4]'>
@@ -24,34 +28,30 @@ const Home = () => {
                     </div>
 
                     <nav>
-                        <ul className={`md:flex md:space-x-4 ${show ? 'flex flex-col items-center' : 'hidden'} md:flex`}>
-                            <li className='mt-2 md:mt-0'>
-                                <button className='block px-4 py-2 text-white hover:text-[#27378c] hover:border-b-2 border-[#1f3cd4]'>
+                        {/* <ul className={`md:flex md:space-x-4 ${show ? 'flex flex-col items-center slide-down' : 'hidden slide-up'}`}> */}
+                        <ul className={`md:flex md:space-x-4 ${show ? 'flex flex-col items-center slide-down' : 'hidden slide-up'}`}><li className='mt-2 md:mt-0'><button
+                                    className='block px-4 py-2 text-white hover:text-[#27378c] hover:border-b-2 border-[#1f3cd4]'
+                                    onClick={showAddTask}>
                                     Home
                                 </button>
                             </li>
                             <li className='mt-2 md:mt-0'>
-                                <button className='block px-4 py-2 text-white hover:text-[#27378c] hover:border-b-2 border-[#1f3cd4]'>
+                                <button className='block px-4 py-2 text-white hover:text-[#27378c] hover:border-b-2 border-[#1f3cd4]' onClick={showTodo}>
                                     Todo Tasks
                                 </button>
                             </li>
                             <li className='mt-2 md:mt-0'>
-                                <button className='block px-4 py-2 text-white hover:text-[#27378c] hover:border-b-2 border-[#1f3cd4]'>
+                                <button className='block px-4 py-2 text-white hover:text-[#27378c] hover:border-b-2 border-[#1f3cd4]' onClick={showCompleted}>
                                     Completed Tasks
                                 </button>
                             </li>
                         </ul>
                     </nav>
                 </header>
-                
             </div>
-            <div className='mx-auto'>
-                <div className='w-[10rem] bg-[#a1affa] mx-auto rounded-md mt-10 text-white p-5'>
-                    <p className='flex justify-center font-semibold'>Add a Task</p>
-                    <FaPlus className='mx-auto text-4xl mt-5'/>
-                </div>
-            </div>
-            
+            {currentView === 'addTask' && <Add_task />}
+            {currentView === 'todo' && <Todo />}
+            {currentView === 'completed' && <CompletedTask />}
         </>
     );
 };

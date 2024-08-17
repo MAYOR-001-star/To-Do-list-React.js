@@ -1,11 +1,11 @@
 import React from 'react'
 
 const Todo = () => {
-  return (
-    <div>
-      
-    </div>
-  )
+    return (
+        <div>
+            Todo section
+        </div>
+    )
 }
 
 export default Todo
