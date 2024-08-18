@@ -42,7 +42,7 @@ const Todo = () => {
     };
     
     const eliminator1 = (id) => {
-        if (window.confirm('Are you sure you have completed this task?')) {
+        if (window.confirm('Are you sure you have really completed this task?')) {
             const deleteItems = completedItems.filter((item) => item.id !== id);
             setCompletedItems(deleteItems);
         }
