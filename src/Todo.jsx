@@ -35,14 +35,18 @@ const Todo = () => {
     }
 
     const eliminator = (id) => {
-        const deleteItems = todos.filter((todo)=>todo.id !== id)
-        setTodos(deleteItems)
-    }
-
+        if (window.confirm('Are you sure you want to delete this task?')) {
+            const deleteItems = todos.filter((todo) => todo.id !== id);
+            setTodos(deleteItems);
+        }
+    };
+    
     const eliminator1 = (id) => {
-        const deleteItems = completedItems.filter((item)=>item.id !== id)
-        setCompletedItems(deleteItems)
-    }
+        if (window.confirm('Are you sure you want to delete this completed task?')) {
+            const deleteItems = completedItems.filter((item) => item.id !== id);
+            setCompletedItems(deleteItems);
+        }
+    };    
 
     const completedTask = (id) => {
         if(completedItems){
