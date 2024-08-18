@@ -3,7 +3,7 @@ import Todo from './Todo';
 
 const Home = () => {
     return (
-        <>
+        <div className='lg:border-2 border-[#3461d4] max-w-[55rem] mx-auto h-full pb-24 mt-5'>
             <div className='timmana-regular p-4 bg-[hsl(223,65%,52%)] max-w-[55rem] mx-auto border-b-2 border-[#3461d4]'>
                 <header className='md:flex justify-around items-center bg-[#a1affa] p-3'>
                     <div className='flex justify-between items-center'>
@@ -15,7 +15,7 @@ const Home = () => {
                 </header>
             </div>
             <Todo/>
-        </>
+        </div>
     );
 };
 
